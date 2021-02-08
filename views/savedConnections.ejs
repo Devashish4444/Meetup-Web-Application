@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+   <title> Milestone </title>
+   <link rel="stylesheet" type="text/css" href="../assets/stylesheets/styles.css">  
+ </head>
+ 
+  <body>
+    <div id="page-container">
+        <div id="content-wrap">
+  
+    <%- include('./partials/header.ejs') -%>
+ 
+ <main>
+
+  <%- include('./partials/navigation.ejs') -%>
+
+    
+   <div class = "main">
+    <p class="saveHeading">Connections List</p>
+    <br>
+    <% if(userConnList != undefined && userConnList.length>0){ %>
+<table class="tableStyle">
+    <tr>
+        <th>Connection</th>
+        <th>Category</th>  
+        <th>Going</th>
+        <th>Actions</th>
+    </tr>
+    <% userConnList.forEach(function(item){ %>
+    <tr>
+        <td><%= item.connection.connectionName %></td>
+        <td><%= item.connection.connectionHeading %></td>
+        <td><%= item.rsvp %></td>
+        <td>
+            <form>
+                <button formmethod="post" formaction="./connection?connectionId=<%=item.connection.connectionId%>">Update</button>
+                <button formmethod="post" formaction='savedConnections?connectionId=<%=item.connection.connectionId%>&action=delete'>Delete</button>
+            </form>
+        </td>
+    </tr>
+    <% }) %>
+</table>
+<% } else { %>
+    <p>No connections are added.</p>
+<% } %>
+</div>
+
+</main>
+        </div>
+
+<%- include('./partials/footer.ejs') -%>  
+    </div>
+
+  </body>
+  </html>
+
+
+
+
+
+

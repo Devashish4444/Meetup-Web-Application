@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+   <title> Milestone </title>
+   <link rel="stylesheet" type="text/css" href="../assets/stylesheets/styles.css">  
+ </head>
+
+ 
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+  <%- include('./partials/header.ejs') -%>
+  
+ 
+ <main>
+  <%- include('./partials/navigation.ejs') -%>
+   
+   <br>
+ 
+ <div class="maincontent">
+ 
+ 
+ <p><b>Please fill in this form to create your account.</b></p>
+
+    <form id="Signup" action="/signup" method="post">
+        <% if(errors != undefined){ %>
+            <h2> There were one or more errors in your entry. Please try again !</h2>
+             <% errors.forEach(function(err){ %>
+               <p><%= err %></p>
+             <% }) %>
+             <% } %>
+      <div>
+        <label for="userid">User id</label>
+        <input id="userid" type="text" name="userid" placeholder="Create userid" required>
+      </div>
+         
+            <div>
+                <label for="firstname">First name</label>
+                <input id="firstname" type="text" name="firstname" placeholder="Enter first name" required>  
+              
+             </div>
+
+             <div>
+                <label for="lastname">Last name</label>
+                <input id="lastname" type="text" name="lastname" placeholder="Enter last name" required>  
+              
+             </div>
+             <div>
+                <label for="emailaddress">Email address</label>
+                <input id="emailaddress" type="email" name="emailaddress" placeholder="Enter email address" required>  
+              
+             </div>
+
+             <div>
+                <label for="city">City</label>
+                <input id="city" type="text" name="city" placeholder="Enter your City" required>  
+              
+             </div>
+
+             <div>
+                <label for="state">State</label>
+                <input id="state" type="text" name="state" placeholder="Enter your state" required>  
+              
+             </div>
+
+             <div>
+                <label for="country">Country</label>
+                <input id="country" type="text" name="country" placeholder="Enter your country" required>  
+              
+             </div>
+
+
+         <div>
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Create password" required>
+
+        </div>
+       
+        
+        <input type="submit" value="Signup" />
+</form>
+</div>
+ 
+</main>
+      </div>
+<%- include('./partials/footer.ejs') -%>
+    </div>
+  </body>
+  </html>

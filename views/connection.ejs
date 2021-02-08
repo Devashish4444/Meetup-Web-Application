@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+   <title> Milestone </title>
+   <link rel="stylesheet" type="text/css" href="../assets/stylesheets/styles.css">  
+ </head>
+ 
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+  
+    <%- include('./partials/header.ejs') -%>
+ 
+ <main>
+
+  <%- include('./partials/navigation.ejs') -%>
+   <br>
+ 
+ 
+ 
+    
+
+        <div class = "main container">
+            <p class="con_highlight">
+               <h2><%= data.connectionName %></h2>
+        <img class="imgboy" src="<%= data.image %>" alt="hosts"/>       
+        
+        <div class="con_highlight">
+        <div class="button choice">
+        <p>hostedBy <%= data.hostedBy %>  <br> <%= data.date %> <br><%= data.time %><br>
+          <%= data.address %></p><br> details : <%= data.details %>
+        
+        </div>
+        </div>
+        </div>
+        
+        <div class="button choice">
+               Please make your choice, <%= data.going %> This many people are going<br>
+               <form action="<% if(session!=undefined){ %>
+                savedConnections?connectionId=<%= data.connectionId %>&action=save
+              <% } else { %>
+                login
+              <% } %>" method="<% if(session!=undefined){ %>post<% } else { %>get<% } %>">
+            <button  name="response" value="Yes" class="button button1">Yes</button>
+            <button name="response"  value="No" class="button button2">No</button>
+            <button name="response" value="Maybe" class="button button3">Maybe</button>
+               </form>
+        </div>
+          
+    
+
+ 
+</main>
+
+      </div>
+
+<%- include('./partials/footer.ejs') -%>
+
+    </div>
+
+  </body>
+  </html>
+
+
+
+
+
+

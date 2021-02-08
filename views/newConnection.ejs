@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+   <title> Milestone </title>
+   <link rel="stylesheet" type="text/css" href="../assets/stylesheets/styles.css">  
+ </head>
+ 
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+    <%- include('./partials/header.ejs') -%>
+ <main>
+
+  <%- include('./partials/navigation.ejs') -%>
+
+  
+   <br>
+ 
+    <form id="/newConnection"  method="post">
+      
+      <% if(errors != undefined){ %>
+       <h2> There were one or more errors in your entry. Please try again !</h2>
+        <% errors.forEach(function(err){ %>
+          <p><%= err %></p>
+        <% }) %>
+        <% } %>
+        <label >Topic</label>
+        <input type="text" name="topic" placeholder="Enter event topic" required>
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Enter event name" required>
+        <label >Details</label>
+        <input type="text" name="details" placeholder="Enter event details" required>
+        <label >Where</label>
+        <input type="text" name="where" placeholder="Enter event location" required>
+        <label >When</label>
+        <input type="date" name="when" required>
+        <label >Time</label>
+        <input type="time" name="time" required>
+        <input type="submit" value="Create Connection" name="addConn" />
+      </form>
+ 
+ 
+</main>
+
+</div>  
+    
+
+
+<%- include('./partials/footer.ejs') -%>
+
+    </div>
+  </body>
+  </html>

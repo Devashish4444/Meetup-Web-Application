@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+   <title> Milestone </title>
+   <link rel="stylesheet" type="text/css" href="../assets/stylesheets/styles.css">  
+ </head>
+ 
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+    <%- include('./partials/header.ejs') -%>
+  
+ 
+ <main>
+
+  <%- include('./partials/navigation.ejs') -%>
+   
+   <br>
+        <!--body of page-->
+        <div class="main"> 
+          <% Object.keys(data).forEach(function(value) { %>
+            <table> 
+              <tr>
+                <th><%= value %></th>
+                <% data[value].forEach(function(val) {%>
+                    <td>  
+                      <a href="/connection?connectionId=<%= val[1] %>"> <%= val[0] %> </a>
+                    </td>
+                <% }); %>
+              </tr>
+            </table>
+          <% }); %>
+        </div>
+ 
+ 
+ 
+</main>
+      </div>
+
+<%- include('./partials/footer.ejs') -%>
+    </div>
+
+  </body>
+  </html>

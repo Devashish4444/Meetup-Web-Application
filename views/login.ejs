@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+   <title> Milestone </title>
+   <link rel="stylesheet" type="text/css" href="../assets/stylesheets/styles.css">  
+ </head>
+
+ 
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+  <%- include('./partials/header.ejs') -%>
+  
+ 
+ <main>
+  <%- include('./partials/navigation.ejs') -%>
+   
+   <br>
+ 
+ <div class="maincontent">
+ <p><b>Welcome to CCI Connections.</b></p>
+ <br>
+ <p>Please enter your username and password to sign in:</p>
+
+    <form id="login" action="/login" method="post">
+
+      <% if(errors != undefined){ %>
+        <p> <b>There were one or more errors in your entry. Please try again !</b></p>
+         <% errors.forEach(function(err){ %>
+           <p><%= err %></p>
+         <% }) %>
+         <% } %>
+      <% if(signIn === 'Nil'){ %>
+        <h4>The username and password you entered is incorrect!!</h4>
+      <% } %>
+      <div>
+
+
+        <label for="username">username</label>
+        <input id="username" type="text" name="username" placeholder="Enter username" required>
+      </div>
+         <div>
+
+          <label>password</label>
+          <input type="password" name="password" placeholder="Enter password" required>
+
+         </div>
+        
+        <input type="submit" value="Login" />
+</form>
+</div>
+ 
+</main>
+      </div>
+<%- include('./partials/footer.ejs') -%>
+    </div>
+  </body>
+  </html>

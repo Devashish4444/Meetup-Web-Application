@@ -1,0 +1,24 @@
+<header class="banner">
+    <a href="/index">
+    <img class="imgpet" src="../assets/images/pet.jpeg" alt="pet image" >
+  </a>
+    <em> PET THERAPY AT UNC CHARLOTTE</em>
+    
+    <% if (session == undefined) { %>
+     <nav>
+    <ul>
+    <li> <a href="/newConnection">Start a new connection </a></li>
+    <li> <a href="/login">Login </a></li>
+    <li> <a href="/signup">Signup </a></li>
+    </ul>
+   </nav>
+   <% }  else {  %>
+   <nav>
+    <ul>
+    <li> <a href="/newConnection">Start a new connection </a></li>
+    <li> <a href="/savedConnections">My Connections </a></li>
+    <li> <a href="/logout">Log Out </a></li>
+    </ul>
+   </nav>
+  <% } %>
+    </header>

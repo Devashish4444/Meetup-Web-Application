@@ -1,0 +1,17 @@
+<% if (session == undefined) {%>
+<div id="conn">
+    <ul>
+        <li><a href="/index">Home</a></li>
+        <li><a href="/connections">Connections</a></li>
+    </ul>
+</div>
+ <% } else { %>
+
+<div id="conn">
+    <ul>
+        <li><a href="/index">Home</a></li>
+        <li><a href="/connections">Connections</a></li>
+        <li style="float:right"><a style="text-decoration: none" href=""> <em> Welcome <%= session.First_Name %> </em></a></li>
+    </ul>
+</div>  
+<% } %>
